@@ -1,14 +1,14 @@
-  const chartContainer = document.querySelector(".chart-container");
-  const confirmed = document.querySelector(".confirmed");
-  const deaths = document.querySelector(".deaths");
-  const recovered = document.querySelector(".recovered");
-  const critical = document.querySelector(".critical");
-  const asia = document.querySelector(".asia");
-  const americas = document.querySelector(".americas");
-  const africa = document.querySelector(".africa");
-  const europe = document.querySelector(".europe");
-  const world = document.querySelector(".world");
-  const select = document.querySelector("#select");
+  const chartContainer = document.querySelector(".chart-container"),
+   confirmed = document.querySelector(".confirmed"),
+   deaths = document.querySelector(".deaths"),
+   recovered = document.querySelector(".recovered"),
+   critical = document.querySelector(".critical"),
+   asia = document.querySelector(".asia"),
+   americas = document.querySelector(".americas"),
+   africa = document.querySelector(".africa"),
+   europe = document.querySelector(".europe"),
+   world = document.querySelector(".world"),
+   select = document.querySelector("#select");
 
   /* querySelector for the select bar */
   let countrytotalcase=document.querySelector('.total-cases')
@@ -66,8 +66,8 @@
         };
       if (!localStorage.getItem("world")) {
         
-        //  let data1 = await (await fetch('https://corona-api.com/countries')).json();
-        //  let data2 = await (await fetch('https://api.allorigins.win/raw?url=https://restcountries.herokuapp.com/api/v1')).json();
+          let data1 = await (await fetch('https://corona-api.com/countries')).json();
+          let data2 = await (await fetch('https://api.allorigins.win/raw?url=https://restcountries.herokuapp.com/api/v1')).json();
           
   data2.forEach(e => {
       data1.data.forEach(element => {
@@ -112,16 +112,14 @@
 
   function addbycase(reg,latest_data='confirmed'){
 
-    let  lest=[],num=[];
+    let  countrylest=[],number=[];
     let add1=JSON.parse(localStorage.getItem(reg))
     for (const key in add1) {
         lest.push(add1[key].country)
-        num.push(add1[key].data[latest_data])
+        number.push(add1[key].data[latest_data])
         }
-    console.log(lest);
-    console.log(num);
-    addcountrynamestoselect(lest);
-    graphchart({data:num,country:lest})
+    addcountrynamestoselect(countrylest);
+    graphchart({data:number,country:countrylest})
 }  
 
  /* ------------------------- fill the select option wuth country names ---------------------- */
@@ -145,7 +143,6 @@
     console.log(event.target.value)
   });
   select.innerHTML=countryname;
-  console.log(countryname);
   }
   
 /* ----------------------------------- drew the graph in the canvas ---------------------------------*/
@@ -193,19 +190,19 @@ function graphchart(data){
             scales: {
                 y: {
                     beginAtZero: true
-                },
-                x:{
-                  autoSkip: false     // don't skip any country
-
                 }
+                //,
+                // x:{
+                //   autoSkip: false     // don't skip any country
+
+                // }
             }
         }
     });
 }
 
-
-  getData()
-  selectSetuation()
+getData()
+selectSetuation()
   
   
   
