@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>COVID-19</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'><link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <div class="card bg-light">
+    <div class="card-header">Global Covid-19<br> Statistics</div>
+        <div class="card-header" id="update">Last Updated: <br><span id="updateData"></span></div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" id="confirm"><i class="fas fa-user-friends fa-3x"></i></span>
+            <h5>Confirmed Cases</h5> <span id="confirmData" class="showdata total-cases">
+          </li>
+          <li class="list-group-item" id="recover"><span class="icons"><i class="fas fa-check-circle fa-3x"></i></span>
+            <h5>Recovered</h5><span id="recoverData" class="showdata total-recovered"></span>
+          </li>
+          <li class="list-group-item" id="critical"><span class="icons"><i class="fas fa-bed fa-3x"></i></span>
+            <h5>Critical Cases</h5> <span id="criticalData" class="showdata critical"></span>
+          </li>
+          <li class="list-group-item" id="deaths"><span class="icons"><i class="fas fa-heart-broken fa-3x"></i></span>
+            <h5>Total Deaths</h5> <span id="deathsData" class="showdata total-deaths"></span>
+          </li>
+        </ul>
+    </div>
+
+
+    <div class="screenopen"></div>
+		<div id="main">
+        <div class="selectRegion">
+          <input type="button"id="btn" class="asia" value="Asia">
+          <input type="button"id="btn" class="americas"value="Americas">
+          <input type="button"id="btn"class="africa"value="Africa">
+          <input type="button"id="btn" class="europe"value="Europe">
+          <input type="button"id="btn" class="world"value="World">
+        </div>
+          <div class="selectcountry">
+           <span class="selectcountry">select country: </span> <select type="text" id="select" class="select" ></select>
+			    </div>
+          <div class="information">   
+            <span> <input type="button"id="btn" class="confirmed"value="Confirmed"></span>
+            <span><input type="button"id="btn" class="deaths"value="Deaths"></span>
+            <span><input type="button"id="btn" class="recovered"value="Recovered"></span>
+            <span><input type="button"id="btn" class="critical"value="Critical"></span>
+          </div>
+
+      <div class="chart-container">
+				<canvas id="chart"></canvas>
+			</div>
+	
+		</div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js'></script>
+  <script  src="./script.js"></script>
+
+</body>
+</html>
